@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FormWrapper from '../components/FormWrapper.astro';
+import { Content as WalksIntro } from '../content/walks-intro.md';
+---
+
+<BaseLayout title="Walks">
+  <div class="max-w-3xl mx-auto px-6 py-16">
+    <h1 class="text-4xl font-serif text-clay mb-8">The Walks</h1>
+
+    <div class="prose prose-lg font-serif text-ink max-w-none">
+      <WalksIntro />
+    </div>
+
+    <section class="mt-16">
+      <h2 class="text-3xl font-serif text-clay mb-4">Come walk with us</h2>
+      <p class="mb-6">
+        Drop your name and we'll reach out with the next walk's meeting time and location.
+      </p>
+
+      <FormWrapper subject="New walk signup">
+        <label class="block">
+          <span class="text-sm uppercase tracking-wider text-clay">Name</span>
+          <input
+            type="text"
+            name="name"
+            required
+            class="mt-1 block w-full border border-warmth/40 bg-cream px-3 py-2 focus:outline-none focus:border-clay"
+          />
+        </label>
+        <label class="block">
+          <span class="text-sm uppercase tracking-wider text-clay">Email</span>
+          <input
+            type="email"
+            name="email"
+            required
+            class="mt-1 block w-full border border-warmth/40 bg-cream px-3 py-2 focus:outline-none focus:border-clay"
+          />
+        </label>
+        <label class="block">
+          <span class="text-sm uppercase tracking-wider text-clay">Anything you want us to know?</span>
+          <textarea
+            name="message"
+            rows="3"
+            class="mt-1 block w-full border border-warmth/40 bg-cream px-3 py-2 focus:outline-none focus:border-clay"
+          ></textarea>
+        </label>
+      </FormWrapper>
+    </section>
+  </div>
+</BaseLayout>

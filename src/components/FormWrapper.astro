@@ -1,0 +1,55 @@
+---
+import { FORMS } from '../config';
+
+interface Props {
+  subject: string;
+  successMessage?: string;
+}
+const { subject, successMessage = "Thank you. We'll be in touch soon." } = Astro.props;
+---
+
+<form
+  action={FORMS.endpoint()}
+  method="POST"
+  class="space-y-4 max-w-lg"
+  data-form-wrapper
+>
+  <input type="hidden" name="_subject" value={subject} />
+  <slot />
+  <button
+    type="submit"
+    class="bg-clay text-cream px-6 py-3 font-serif tracking-wide uppercase text-sm hover:bg-ink transition-colors"
+  >
+    Send
+  </button>
+</form>
+
+<div data-form-success class="hidden bg-sand border border-warmth p-6 max-w-lg">
+  <p class="text-clay font-serif text-lg">{successMessage}</p>
+</div>
+
+<script>
+  document.querySelectorAll('[data-form-wrapper]').forEach((form) => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const f = e.target as HTMLFormElement;
+      const data = new FormData(f);
+      try {
+        const res = await fetch(f.action, {
+          method: 'POST',
+          body: data,
+          headers: { Accept: 'application/json' },
+        });
+        if (res.ok) {
+          f.classList.add('hidden');
+          const success = f.parentElement?.querySelector('[data-form-success]');
+          success?.classList.remove('hidden');
+        } else {
+          alert('Something went wrong. Please email us directly.');
+        }
+      } catch {
+        alert('Something went wrong. Please email us directly.');
+      }
+    });
+  });
+</script>
