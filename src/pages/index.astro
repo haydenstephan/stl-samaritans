@@ -1,10 +1,30 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import CtaCard from '../components/CtaCard.astro';
+import { Content as Mission } from '../content/mission.md';
+import { SITE } from '../config';
 ---
 
 <BaseLayout title="Home">
-  <div class="max-w-3xl mx-auto p-12">
-    <h1 class="text-4xl">Hello from the Samaritans.</h1>
-    <p class="mt-4">Placeholder home page — content arrives in Task 3.</p>
-  </div>
+  <Hero
+    tagline={SITE.tagline}
+    subtitle="A relational ministry in downtown St. Louis."
+  />
+
+  <section class="max-w-3xl mx-auto px-6 py-16 prose prose-lg font-serif text-ink">
+    <Mission />
+  </section>
+
+  <section class="max-w-5xl mx-auto px-6 pb-16 grid md:grid-cols-3 gap-6">
+    <CtaCard title="The Walks" href="/walks" cta="Join us">
+      What to expect when you walk with us — and how to come along.
+    </CtaCard>
+    <CtaCard title="Get Involved" href="/get-involved" cta="See events">
+      Upcoming walks, retreats, and gatherings.
+    </CtaCard>
+    <CtaCard title="Donate" href="/get-involved#donate" cta="Give">
+      Money via Venmo, supplies via St. Richard's.
+    </CtaCard>
+  </section>
 </BaseLayout>

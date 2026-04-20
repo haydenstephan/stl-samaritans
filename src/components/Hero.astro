@@ -1,0 +1,18 @@
+---
+interface Props {
+  tagline: string;
+  subtitle?: string;
+  imageUrl?: string;
+}
+const { tagline, subtitle, imageUrl } = Astro.props;
+---
+
+<section
+  class="relative bg-clay text-cream py-24 px-6"
+  style={imageUrl ? `background-image: linear-gradient(rgba(42,37,32,0.55), rgba(42,37,32,0.55)), url('${imageUrl}'); background-size: cover; background-position: center;` : ''}
+>
+  <div class="max-w-3xl mx-auto text-center">
+    <h1 class="text-5xl md:text-6xl font-serif mb-4 leading-tight">{tagline}</h1>
+    {subtitle && <p class="text-lg md:text-xl opacity-90">{subtitle}</p>}
+  </div>
+</section>
