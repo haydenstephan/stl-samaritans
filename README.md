@@ -1,43 +1,56 @@
-# Astro Starter Kit: Minimal
+# St. Louis Samaritans Website
 
-```sh
-npm create astro@latest -- --template minimal
+The website for the St. Louis Samaritans, an informal homeless ministry in
+downtown St. Louis. Live at [stlsamaritans.org](https://stlsamaritans.org).
+
+## Stack
+
+- [Astro](https://astro.build) — static site generator
+- [Tailwind CSS](https://tailwindcss.com) — styling
+- [Formspree](https://formspree.io) — form handling
+- [Google Calendar](https://calendar.google.com) — events
+- GitHub Pages — hosting
+
+## Local development
+
+```bash
+npm install
+npm run dev      # http://localhost:4321
+npm run build    # production build into dist/
+npm run preview  # serve the built site locally
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Editing content
 
-## 🚀 Project Structure
+Most editable copy lives in `src/content/*.md`. Edit those Markdown
+files (locally or via the GitHub web UI) and commit — the site rebuilds
+on push to `main`.
 
-Inside of your Astro project, you'll see the following folders and files:
+Site-wide constants (Venmo handle, Formspree ID, calendar URL, contact
+email, donation dropoff address) are in `src/config.ts`.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Adding photos
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Drop images into `public/images/` and reference them as `/images/<filename>`
+in `src/pages/about.astro` (or any page).
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Deployment
 
-Any static assets, like images, can be placed in the `public/` directory.
+Push to `main`. The GitHub Action in `.github/workflows/deploy.yml` builds
+the site and publishes it via GitHub Pages.
 
-## 🧞 Commands
+## DNS setup (one-time)
 
-All commands are run from the root of the project, from a terminal:
+At your domain registrar (for `stlsamaritans.org`), set these records:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Type  | Name | Value                  |
+|-------|------|------------------------|
+| A     | @    | 185.199.108.153        |
+| A     | @    | 185.199.109.153        |
+| A     | @    | 185.199.110.153        |
+| A     | @    | 185.199.111.153        |
+| CNAME | www  | <github-handle>.github.io |
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Then in the GitHub repo: Settings → Pages → Custom domain → enter
+`stlsamaritans.org` → wait for the cert. Enable "Enforce HTTPS" once
+the cert provisions (usually within an hour).
