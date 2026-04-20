@@ -2,6 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FormWrapper from '../components/FormWrapper.astro';
 import { CONTACT } from '../config';
+
+const hasGroupMe = CONTACT.groupMeInviteUrl && CONTACT.groupMeInviteUrl !== 'REPLACE_ME';
+const successMessage = hasGroupMe
+  ? `Thanks — we'll get back to you. In the meantime, here's our GroupMe: ${CONTACT.groupMeInviteUrl}`
+  : "Thanks — we'll get back to you.";
 ---
 
 <BaseLayout title="Contact">
@@ -11,10 +16,7 @@ import { CONTACT } from '../config';
       Questions, comments, or interest in joining? Drop us a note.
     </p>
 
-    <FormWrapper
-      subject="Contact form message"
-      successMessage={`Thanks — we'll get back to you. In the meantime, here's our GroupMe: ${CONTACT.groupMeInviteUrl}`}
-    >
+    <FormWrapper subject="Contact form message" successMessage={successMessage}>
       <label class="block">
         <span class="text-sm uppercase tracking-wider text-clay">Your name</span>
         <input
