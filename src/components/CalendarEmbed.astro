@@ -1,0 +1,18 @@
+---
+import { CALENDAR } from '../config';
+---
+
+{CALENDAR.embedUrl === 'REPLACE_ME' ? (
+  <div class="bg-sand border border-warmth p-6 text-ink/70">
+    <p class="font-serif">Calendar coming soon.</p>
+  </div>
+) : (
+  <div class="aspect-video w-full">
+    <iframe
+      src={CALENDAR.embedUrl}
+      class="w-full h-full border border-warmth"
+      title="St. Louis Samaritans events"
+      loading="lazy"
+    ></iframe>
+  </div>
+)}

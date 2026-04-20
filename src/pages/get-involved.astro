@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CalendarEmbed from '../components/CalendarEmbed.astro';
+import { Content as Supplies } from '../content/supplies.md';
+import { DONATIONS } from '../config';
+---
+
+<BaseLayout title="Get Involved">
+  <div class="max-w-3xl mx-auto px-6 py-16 space-y-16">
+
+    <section>
+      <h1 class="text-4xl font-serif text-clay mb-6">Get Involved</h1>
+      <p class="text-lg">
+        Three ways to be part of what we're doing.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-3xl font-serif text-clay mb-4">Upcoming events</h2>
+      <p class="mb-6">Walks, the annual retreat, and the occasional game night.</p>
+      <CalendarEmbed />
+    </section>
+
+    <section id="donate">
+      <h2 class="text-3xl font-serif text-clay mb-4">Donate money</h2>
+      <p class="mb-6">
+        We use donations to keep our supply bag stocked and to cover retreat costs.
+      </p>
+      {DONATIONS.venmoHandle === 'REPLACE_ME' ? (
+        <p class="text-ink/60 italic">Venmo link coming soon.</p>
+      ) : (
+        <a
+          href={DONATIONS.venmoUrl()}
+          class="inline-block bg-clay text-cream px-8 py-4 font-serif tracking-wide uppercase text-sm hover:bg-ink transition-colors"
+        >
+          Give via Venmo (@{DONATIONS.venmoHandle})
+        </a>
+      )}
+    </section>
+
+    <section>
+      <h2 class="text-3xl font-serif text-clay mb-4">Donate supplies</h2>
+      <div class="prose prose-lg font-serif text-ink max-w-none">
+        <Supplies />
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>
