@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Gallery from '../components/Gallery.astro';
+import { Content as About } from '../content/about.md';
+
+// Replace these with actual photo paths once Hayden adds them to public/images/
+const photos = [
+  { src: '/images/placeholder-1.svg', alt: 'A street walk in downtown St. Louis' },
+  { src: '/images/placeholder-2.svg', alt: 'Annual retreat group photo' },
+  { src: '/images/placeholder-3.svg', alt: 'Board game night' },
+];
+---
+
+<BaseLayout title="About">
+  <div class="max-w-3xl mx-auto px-6 py-16">
+    <h1 class="text-4xl font-serif text-clay mb-8">About us</h1>
+    <div class="prose prose-lg font-serif text-ink max-w-none">
+      <About />
+    </div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-6 pb-16">
+    <Gallery images={photos} />
+  </div>
+</BaseLayout>
