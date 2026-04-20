@@ -6,6 +6,7 @@ interface Props {
   successMessage?: string;
 }
 const { subject, successMessage = "Thank you. We'll be in touch soon." } = Astro.props;
+const formId = crypto.randomUUID();
 ---
 
 <form
@@ -13,41 +14,62 @@ const { subject, successMessage = "Thank you. We'll be in touch soon." } = Astro
   method="POST"
   class="space-y-4 max-w-lg"
   data-form-wrapper
+  data-form-id={formId}
 >
   <input type="hidden" name="_subject" value={subject} />
   <slot />
   <button
     type="submit"
-    class="bg-clay text-cream px-6 py-3 font-serif tracking-wide uppercase text-sm hover:bg-ink transition-colors"
+    class="bg-clay text-cream px-6 py-3 font-serif tracking-wide uppercase text-sm hover:bg-ink transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
   >
     Send
   </button>
 </form>
 
-<div data-form-success class="hidden bg-sand border border-warmth p-6 max-w-lg">
+<div
+  data-form-success
+  data-form-id={formId}
+  role="status"
+  aria-live="polite"
+  class="hidden bg-sand border border-warmth p-6 max-w-lg"
+>
   <p class="text-clay font-serif text-lg">{successMessage}</p>
 </div>
 
 <script>
-  document.querySelectorAll('[data-form-wrapper]').forEach((form) => {
+  document.querySelectorAll<HTMLFormElement>('[data-form-wrapper]').forEach((form) => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const f = e.target as HTMLFormElement;
-      const data = new FormData(f);
+      const f = e.currentTarget as HTMLFormElement;
+      const id = f.dataset.formId;
+      const btn = f.querySelector<HTMLButtonElement>('button[type="submit"]');
+      const originalLabel = btn?.textContent ?? 'Send';
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+      }
       try {
         const res = await fetch(f.action, {
           method: 'POST',
-          body: data,
+          body: new FormData(f),
           headers: { Accept: 'application/json' },
         });
         if (res.ok) {
           f.classList.add('hidden');
-          const success = f.parentElement?.querySelector('[data-form-success]');
+          const success = document.querySelector(`[data-form-success][data-form-id="${id}"]`);
           success?.classList.remove('hidden');
         } else {
+          if (btn) {
+            btn.disabled = false;
+            btn.textContent = originalLabel;
+          }
           alert('Something went wrong. Please email us directly.');
         }
       } catch {
+        if (btn) {
+          btn.disabled = false;
+          btn.textContent = originalLabel;
+        }
         alert('Something went wrong. Please email us directly.');
       }
     });
