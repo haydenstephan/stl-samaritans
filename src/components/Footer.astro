@@ -1,0 +1,17 @@
+---
+import { SITE, CONTACT } from '../config';
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-sand mt-24 py-10 text-center text-ink/70 text-sm">
+  <div class="max-w-5xl mx-auto px-6">
+    <p class="font-serif text-clay text-base mb-2">{SITE.name}</p>
+    <p>Walking with our neighbors in downtown St. Louis.</p>
+    <p class="mt-4">
+      <a href={`mailto:${CONTACT.coordinatorEmail}`} class="underline hover:text-clay">
+        {CONTACT.coordinatorEmail}
+      </a>
+    </p>
+    <p class="mt-6 text-xs opacity-60">© {year} {SITE.name}</p>
+  </div>
+</footer>
