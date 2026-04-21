@@ -3,11 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Gallery from '../components/Gallery.astro';
 import { Content as About } from '../content/about.md';
 
+const base = import.meta.env.BASE_URL;
+
 // Replace these with actual photo paths once Hayden adds them to public/images/
 const photos = [
-  { src: '/images/placeholder-1.svg', alt: 'A street walk in downtown St. Louis' },
-  { src: '/images/placeholder-2.svg', alt: 'Annual retreat group photo' },
-  { src: '/images/placeholder-3.svg', alt: 'Board game night' },
+  { src: `${base}images/placeholder-1.svg`, alt: 'A street walk in downtown St. Louis' },
+  { src: `${base}images/placeholder-2.svg`, alt: 'Annual retreat group photo' },
+  { src: `${base}images/placeholder-3.svg`, alt: 'Board game night' },
 ];
 ---
 

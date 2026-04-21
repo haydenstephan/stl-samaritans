@@ -1,3 +1,6 @@
+# brainstorming session state (local-only)
+.superpowers/
+
 # build output
 dist/
 # generated types
