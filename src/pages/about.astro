@@ -21,6 +21,25 @@ const photos = [
     </div>
   </div>
 
+  <figure class="max-w-2xl mx-auto px-6 pb-16">
+    <a
+      href="https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_The_Good_Samaritan,_1890_-_Google_Art_Project.jpg"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="block"
+    >
+      <img
+        src={`${base}images/good-samaritan-van-gogh.jpg`}
+        alt="The Good Samaritan (after Delacroix), painted by Vincent van Gogh in 1890"
+        class="w-full rounded border border-warmth/30 hover:border-clay transition-colors"
+        loading="lazy"
+      />
+    </a>
+    <figcaption class="text-sm text-ink/70 mt-3 text-center font-serif italic">
+      Vincent van Gogh, <em>The Good Samaritan (after Delacroix)</em>, 1890. Kröller-Müller Museum.
+    </figcaption>
+  </figure>
+
   <div class="max-w-5xl mx-auto px-6 pb-16">
     <Gallery images={photos} />
   </div>
@@ -35,7 +54,7 @@ const photos = [
     >
       <p class="text-xs uppercase tracking-wider text-clay mb-1">St. Louis Review · January 2025</p>
       <p class="font-serif text-lg text-ink mb-2 group-hover:text-clay transition-colors">Catholic groups aid homeless in frigid temps</p>
-      <p class="text-sm text-ink/70">Jennifer Brinker profiles our Sunday walks during a stretch of dangerous winter weather.</p>
+      <p class="text-sm text-ink/70">A profile of our Sunday walks during a stretch of dangerous winter weather.</p>
       <span class="text-xs uppercase tracking-wider text-clay mt-3 inline-block">Read on St. Louis Review →</span>
     </a>
   </section>

@@ -1,4 +1,4 @@
-We are a small group of friends who walk the streets of downtown
+We are a group of friends who walk the streets of downtown
 St. Louis once a week, looking for people who would like company.
 
 We bring snacks, water, hand warmers — but our actual offering is
