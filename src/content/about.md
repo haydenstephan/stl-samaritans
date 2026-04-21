@@ -11,21 +11,24 @@ that model here in St. Louis.
 
 ## The Good Samaritan
 
-> Jesus replied, "A man fell victim to robbers as he went down from
-> Jerusalem to Jericho. They stripped and beat him and went off
-> leaving him half-dead. A priest happened to be going down that
-> road, but when he saw him, he passed by on the opposite side.
-> Likewise a Levite came to the place, and when he saw him, he
-> passed by on the opposite side. But a Samaritan traveler who came
-> upon him was moved with compassion at the sight. He approached the
-> victim, poured oil and wine over his wounds and bandaged them.
-> Then he lifted him up on his own animal, took him to an inn, and
-> cared for him. The next day he took out two silver coins and gave
-> them to the innkeeper with the instruction, 'Take care of him. If
-> you spend more than what I have given you, I shall repay you on my
-> way back.' Which of these three, in your opinion, was neighbor to
-> the robbers' victim?" He answered, "The one who treated him with
-> mercy." Jesus said to him, "Go and do likewise."
+> A man fell victim to robbers as he went down from Jerusalem to
+> Jericho. They stripped and beat him and went off leaving him
+> half-dead.
+>
+> A priest happened to be going down that road, but when he saw him,
+> he passed by on the opposite side. Likewise a Levite came to the
+> place, and when he saw him, he passed by on the opposite side.
+>
+> But a Samaritan traveler who came upon him was moved with compassion
+> at the sight. He approached the victim, poured oil and wine over his
+> wounds and bandaged them. Then he lifted him up on his own animal,
+> took him to an inn, and cared for him. The next day he took out two
+> silver coins and gave them to the innkeeper with the instruction,
+> "Take care of him. If you spend more than what I have given you, I
+> shall repay you on my way back."
+>
+> Which of these three, in your opinion, was neighbor to the robbers'
+> victim? — The one who treated him with mercy. — Go and do likewise.
 >
 > — Luke 10:30–37
 
