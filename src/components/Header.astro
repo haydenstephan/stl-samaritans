@@ -12,11 +12,11 @@ const navLinks = [
 ---
 
 <header class="bg-cream border-b border-sand sticky top-0 z-10">
-  <div class="max-w-5xl mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-y-2">
-    <a href={base} class="font-serif text-clay text-xl tracking-wide">
+  <div class="max-w-5xl mx-auto px-6 py-3 sm:py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-y-2">
+    <a href={base} class="font-serif text-clay text-xl tracking-wide text-center sm:text-left">
       {SITE.name}
     </a>
-    <nav class="flex flex-wrap gap-x-5 gap-y-2 text-xs sm:text-sm uppercase tracking-wider justify-end">
+    <nav class="flex flex-wrap gap-x-4 gap-y-1 text-xs sm:text-sm uppercase tracking-wider justify-center sm:justify-end">
       {navLinks.map(link => (
         <a href={link.href} class="text-ink hover:text-clay transition-colors">
           {link.label}
